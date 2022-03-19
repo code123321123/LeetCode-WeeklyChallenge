@@ -1,0 +1,31 @@
+Solution :-
+
+
+class Solution {
+public:
+    int halveArray(vector<int>& nums) {
+        int n=nums.size();
+        priority_queue<double>pq;
+        double sum=0;
+        int ans=0;
+        for(int i:nums)
+        {
+            pq.push(i);
+            sum+=i;
+        }
+       double target=sum/2;
+        while(sum>target)
+        {
+            auto x=pq.top();
+            pq.pop();
+            sum-=x/2;
+            pq.push(x/2);
+            ans++;
+        }
+        return ans;
+
+     
+    }
+};
+
+For approsch follow commnet of this question :-
